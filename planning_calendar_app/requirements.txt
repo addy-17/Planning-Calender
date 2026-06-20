@@ -1,2 +1,2 @@
-flask==3.0.0
-gunicorn==21.2.0
+streamlit==1.40.0
+pandas==2.2.0
