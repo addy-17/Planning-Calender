@@ -17,6 +17,7 @@ class Product(db.Model):
     barcode = db.Column(db.String(100), nullable=False, unique=True)
     item_code = db.Column(db.String(100))
     item_name = db.Column(db.String(500))
+    article_name = db.Column(db.String(500))
     brand_id = db.Column(db.Integer, db.ForeignKey('brands.id'))
     division = db.Column(db.String(100))
     section = db.Column(db.String(100))

@@ -112,6 +112,7 @@ def parse_inventory(filepath):
         
         product.item_code = str(row.get('Item Code ', '')).strip()
         product.item_name = str(row.get('Item Name', '')).strip()
+        product.article_name = str(row.get('Article Name', '')).strip()
         product.brand_id = brand.id
         product.division = str(row.get('Division', '')).strip()
         product.section = str(row.get('Section ', '')).strip()
@@ -982,7 +983,7 @@ def generate_po_for_brand(brand_name, suggestions, output_path):
             category = product_db.division or ''
             sub_category = product_db.section or ''
             product = product_db.department or ''
-            article = product_db.item_name or ''
+            article = product_db.article_name or ''
             style_code = product_db.item_code or ''
             color = product_db.color or ''
             size = product_db.size or ''
