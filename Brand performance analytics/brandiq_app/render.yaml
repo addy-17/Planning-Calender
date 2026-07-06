@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: brandiq
+    env: python
+    buildCommand: pip install -r brandiq_app/requirements.txt
+    startCommand: cd brandiq_app && gunicorn app:app --bind 0.0.0.0:$PORT --timeout 120
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: brandiq-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: COHERE_API_KEY
+        sync: false
+
+databases:
+  - name: brandiq-db
+    databaseName: brandiq
+    plan: free
